@@ -15,7 +15,7 @@ class Album
   end
 
   def self.find(id)
-    sql = "SELECT * FROM albums WHERE id = #{id};"
+    sql = "SELECT * FROM albums WHERE artist_id = #{id};"
     return Album.map_items(sql)
   end
 
