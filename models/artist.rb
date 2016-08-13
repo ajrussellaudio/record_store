@@ -20,6 +20,11 @@ class Artist
     return artist
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM artists WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items(sql)
     artists = SqlRunner.run(sql)
     result = artists.map { |artist| Artist.new( artist ) }
