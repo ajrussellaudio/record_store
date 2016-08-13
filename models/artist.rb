@@ -14,6 +14,12 @@ class Artist
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM artists WHERE id = #{id};"
+    artist = Artist.map_item(sql)
+    return artist
+  end
+
   def initialize( options )
     @id    = options['id'].to_i
     @name  = options['name']
