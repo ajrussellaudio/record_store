@@ -16,7 +16,7 @@ class Album
 
   def self.find(id)
     sql = "SELECT * FROM albums WHERE id = #{id};"
-    return Album.map_item(sql)
+    return Album.map_items(sql)
   end
 
   def self.delete(id)
