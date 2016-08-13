@@ -18,8 +18,8 @@ CREATE TABLE stocks (
   id SERIAL4 PRIMARY KEY,
   album_id INT4 REFERENCES albums(id) ON DELETE CASCADE,
   format VARCHAR(255),
-  stock INT4,
-  threshold INT4,
+  current_stock_level INT4,
+  reorder_threshold INT4,
   buy_price INT4,
   sell_price INT4
 )
