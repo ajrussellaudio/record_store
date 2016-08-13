@@ -3,23 +3,23 @@ DROP TABLE albums;
 DROP TABLE artists;
 
 CREATE TABLE artists (
-  id serial4 primary key,
-  name varchar(255),
-  genre varchar(255)
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  genre VARCHAR(255)
 );
 
 CREATE TABLE albums (
-  id serial4 primary key,
-  name varchar(255),
-  artist_id int4 references artists(id) on delete cascade
+  id serial4 PRIMARY KEY,
+  name VARCHAR(255),
+  artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE
 );
 
 CREATE TABLE stocks (
-  id serial4 primary key,
-  album_id int4 references albums(id) on delete cascade,
-  format varchar(255),
-  stock_level int4,
-  threshold int4,
-  buy_price money,
-  sell_price money
+  id SERIAL4 PRIMARY KEY,
+  album_id INT4 REFERENCES albums(id) ON DELETE CASCADE,
+  format VARCHAR(255),
+  stock INT4,
+  threshold INT4,
+  buy_price INT4,
+  sell_price INT4
 )
