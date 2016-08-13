@@ -9,6 +9,11 @@ class Artist
     return Artist.map_items( sql )
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM artists;"
+    SqlRunner.run(sql)
+  end
+
   def initialize( options )
     @id    = options['id'].to_i
     @name  = options['name']
