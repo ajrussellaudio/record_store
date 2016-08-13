@@ -1,7 +1,7 @@
 require "pry-byebug"
 require_relative "./models/artist"
 require_relative "./models/album"
-require_relative "./models/album"
+require_relative "./models/stock"
 
 Album.delete_all
 Artist.delete_all

@@ -36,4 +36,12 @@ class Stock
     @id = stocks['id'].to_i
   end
 
+  def album()
+    Album.find(@album_id)
+  end
+
+  def artist()
+    Artist.find(self.album().id)
+  end
+
 end
