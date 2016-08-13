@@ -12,4 +12,24 @@ class Stock
     @sell_price = options['sell_price'].to_i
   end
 
+  def save()
+    sql = "INSERT INTO stocks (
+      album_id,
+      format,
+      stock,
+      threshold,
+      buy_price,
+      sell_price
+      ) VALUES (
+      #{@album_id},
+      '#{@format}',
+      #{@stock},
+      #{@threshold},
+      #{@buy_price},
+      #{@sell_price}
+      ) RETURNING * ;"
+    stocks = SqlRunner.run( sql )
+    @id = stocks['id'].to_i
+  end
+
 end
