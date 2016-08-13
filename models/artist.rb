@@ -58,4 +58,8 @@ class Artist
     return self
   end
 
+  def albums()
+    return Album.find(@id)
+  end
+
 end
