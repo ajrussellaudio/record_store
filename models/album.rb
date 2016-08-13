@@ -19,6 +19,11 @@ class Album
     return Album.map_item(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM albums WHERE id = #{id};"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items( sql )
     albums = SqlRunner.run(sql)
     return albums.map { |album| Album.new(album) }
