@@ -46,7 +46,7 @@ class Artist
     sql = "INSERT INTO artists (name, genre)
       VALUES ('#{@name}', '#{@genre}') RETURNING * ;"
     artist = SqlRunner.run( sql ).first
-    @id = artist['id']
+    @id = artist['id'].to_i
   end
 
   def update()
