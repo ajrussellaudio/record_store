@@ -44,4 +44,13 @@ class Artist
     @id = artist['id']
   end
 
+  def update()
+    sql = "UPDATE artists SET
+      name = '@name',
+      genre = '@genre'
+      WHERE id = #{@id};"
+    SqlRunner.run( sql )
+    return self
+  end
+
 end
