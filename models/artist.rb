@@ -59,7 +59,7 @@ class Artist
   end
 
   def albums()
-    return Album.find(@id)
+    Album.all.select { |album| album.artist_id == @id }
   end
 
 end

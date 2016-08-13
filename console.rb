@@ -41,25 +41,25 @@ album3.save()
 album4.save()
 
 stock1 = Stock.new({
-  @album_id => album1.id, # Modus Operandi
-  @format => 'vinyl',
-  @current_stock_level => 10,
-  @reorder_threshold => 2,
-  @buy_price => 5_00,
-  @sell_price => 10_00
+  'album_id' => album1.id, # Modus Operandi
+  'format' => 'vinyl',
+  'current_stock_level' => 10,
+  'reorder_threshold' => 2,
+  'buy_price' => 5_00,
+  'sell_price' => 10_00
   })
 
 stock2 = Stock.new({
-  @album_id => album3.id, # Music has the Right...
-  @format => 'cd',
-  @current_stock_level => 5,
-  @reorder_threshold => 5,
-  @buy_price => 7_00,
-  @sell_price => 10_00
+  'album_id' => album3.id, # Music has the Right...
+  'format' => 'cd',
+  'current_stock_level' => 5,
+  'reorder_threshold' => 5,
+  'buy_price' => 7_00,
+  'sell_price' => 10_00
   })
 
-stock1.save()
-stock2.save()
+# stock1.save()
+# stock2.save()
 
 binding.pry
 nil

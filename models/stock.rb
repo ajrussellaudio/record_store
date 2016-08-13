@@ -6,7 +6,7 @@ class Stock
 
   def initialize( options )
     @id       = options['id'].to_i
-    @album_id = options['id'].to_i
+    @album_id = options['album_id'].to_i
     @format   = options['format']
 
     @buy_price  = options['buy_price'].to_i
@@ -41,7 +41,7 @@ class Stock
   end
 
   def artist()
-    Artist.find(self.album().id)
+    Artist.find(album().artist_id)
   end
 
 end
