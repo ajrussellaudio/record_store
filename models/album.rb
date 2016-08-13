@@ -16,4 +16,12 @@ class Album
     @id = album['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE albums SET 
+      name = '#{@name}', 
+      artist_id = #{artist_id}
+      WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
 end
