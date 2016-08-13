@@ -9,7 +9,10 @@ class Album
     return Album.map_items(sql)
   end
 
-
+  def self.delete_all()
+    sql = "DELETE FROM albums;"
+    SqlRunner.run(sql)
+  end
 
   def self.map_items( sql )
     albums = SqlRunner.run(sql)
