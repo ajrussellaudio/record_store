@@ -7,7 +7,13 @@ class Album
   def initialize( options )
     @id        = options['id'].to_i
     @name      = options['name']
-    @artist_id = options['artist_id']
+    @artist_id = options['artist_id'].to_i
+  end
+
+  def save()
+    sql = "INSERT INTO albums (name, artist_id) VALUES ('#{@name}', #{@artist_id}) RETURNING * ;"
+    album = SqlRunner.run( sql ).first
+    @id = album['id'].to_i
   end
 
 end
