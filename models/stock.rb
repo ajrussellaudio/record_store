@@ -56,4 +56,8 @@ class Stock
     Artist.find(album().artist_id)
   end
 
+  def genre()
+    return album.artist.genre
+  end
+
 end
