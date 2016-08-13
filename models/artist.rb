@@ -4,6 +4,11 @@ class Artist
 
   attr_reader :id, :name, :genre
 
+  def self.all
+    sql = "SELECT * FROM artists;"
+    return Artist.map_items( sql )
+  end
+
   def initialize( options )
     @id    = options['id'].to_i
     @name  = options['name']
@@ -16,6 +21,5 @@ class Artist
     artist = SqlRunner.run( sql ).first
     @id = artist['id']
   end
-
 
 end
