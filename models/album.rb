@@ -4,6 +4,22 @@ class Album
 
   attr_reader :id, :name, :artist_id
 
+  def self.all()
+    sql = "SELECT * FROM albums;"
+    return Album.map_items(sql)
+  end
+
+
+
+  def self.map_items( sql )
+    albums = SqlRunner.run(sql)
+    return albums.map { |album| Album.new(album) }
+  end
+
+  def self.map_item( sql )
+    return Album.map_items(sql).first
+  end
+
   def initialize( options )
     @id        = options['id'].to_i
     @name      = options['name']
