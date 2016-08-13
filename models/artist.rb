@@ -20,6 +20,17 @@ class Artist
     return artist
   end
 
+  def self.map_items(sql)
+    artists = SqlRunner.run(sql)
+    result = artists.map { |artist| Artist.new( artist ) }
+    return result
+  end
+
+  def self.map_item(sql)
+    result = Artist.map_items(sql)
+    return result.first
+  end
+
   def initialize( options )
     @id    = options['id'].to_i
     @name  = options['name']
