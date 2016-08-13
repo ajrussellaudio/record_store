@@ -36,6 +36,18 @@ class Stock
     @id = stocks['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE stocks SET 
+      album_id = #{@album_id},
+      format   = '#{@format}',
+      buy_price  = #{@buy_price},
+      sell_price = #{@sell_price},
+      current_stock_level = #{@current_stock_level},
+      reorder_threshold   = #{@reorder_threshold}
+      WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
   def album()
     Album.find(@album_id)
   end
