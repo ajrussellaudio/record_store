@@ -53,4 +53,8 @@ class Album
     SqlRunner.run( sql )
   end
 
+  def artist()
+    return Artist.find(@artist_id)
+  end
+
 end
