@@ -14,6 +14,11 @@ class Album
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM albums WHERE id = #{id};"
+    return Album.map_item(sql)
+  end
+
   def self.map_items( sql )
     albums = SqlRunner.run(sql)
     return albums.map { |album| Album.new(album) }
