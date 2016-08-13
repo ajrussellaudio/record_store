@@ -1,6 +1,6 @@
 require_relative "../db/sql_runner"
 
-class StockItem
+class Stock
 
   def initialize( options )
     @id         = options['id'].to_i
