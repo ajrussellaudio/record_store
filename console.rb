@@ -58,8 +58,8 @@ stock2 = Stock.new({
   'sell_price' => 10_00
   })
 
-# stock1.save()
-# stock2.save()
+stock1.save()
+stock2.save()
 
 binding.pry
 nil

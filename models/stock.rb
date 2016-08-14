@@ -4,6 +4,16 @@ class Stock
 
   attr_reader :id, :album_id, :format, :buy_price, :sell_price, :current_stock_level, :reorder_threshold
 
+  def self.all()
+    sql = "SELECT * FROM stocks;"
+    Stock.map_items(sql)
+  end
+
+  def self.map_items( sql )
+    stocks = SqlRunner.run(sql)
+    return stocks.map { |stock| Stock.new(stock) }
+  end
+
   def initialize( options )
     @id       = options['id'].to_i
     @album_id = options['album_id'].to_i
@@ -32,8 +42,8 @@ class Stock
       #{@current_stock_level},
       #{@reorder_threshold}
       ) RETURNING * ;"
-    stocks = SqlRunner.run( sql )
-    @id = stocks['id'].to_i
+    stock = SqlRunner.run( sql ).first
+    @id = stock['id'].to_i
   end
 
   def update()
