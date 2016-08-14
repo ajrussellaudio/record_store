@@ -1,0 +1,30 @@
+<% @page_title = "Add Stock Item" %>
+
+<form action="/stock/new" method="post" >
+  <label for="album">Album: </label>
+  <select name="album_id">
+    <% @albums.each do |album| %>
+    <option value = "<%= album.id %>"><%= album.artist.name %> - <%= album.name %></option>
+    <% end %>   
+  </select>
+
+  <% formats = ["vinyl", "cd", "tape"] %>
+  <label for="format">Format: </label>
+  <select name="format">
+    <% formats.each do |format| %>
+    <option value="<%= format %>"><%= format %></option>
+    <% end %>
+  </select>
+
+  <label for="buy_price">Purchase Price: </label>
+  <input type="number" min="0" value="0" name="buy_price">
+
+  <label for="sell_price">Sell Price: </label>
+  <input type="number" min="0" value="0" name="sell_price">
+
+  <label for="reorder_threshold">Minimum Stock Level: </label>
+  <input type="number" min="0" value="0" name="reorder_threshold">
+
+  <input type="submit" value="Add Stock Item">
+  
+</form>

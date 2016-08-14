@@ -3,3 +3,7 @@ get '/stock' do
   erb(:'stock/index')
 end
 
+get '/stock/new' do
+  @albums = Album.all
+  erb(:'stock/new')
+end
