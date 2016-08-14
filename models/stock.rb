@@ -14,9 +14,18 @@ class Stock
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM stocks WHERE id = #{id};"
+    Stock.map_item( sql )
+  end
+
   def self.map_items( sql )
     stocks = SqlRunner.run(sql)
     return stocks.map { |stock| Stock.new(stock) }
+  end
+
+  def self.map_item( sql )
+    return Stock.map_items(sql).first
   end
 
   def initialize( options )

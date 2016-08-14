@@ -1,6 +1,7 @@
 <% @page_title = "All Stock" %>
 
 <% @stock.each do |item| %>
-  <p><%= item.artist.name %> - <%= item.album.name %> [<%= item.current_stock_level %>]</p>
+  <p><%= item.artist.name %> - <em><%= item.album.name %></em>, <%= item.format.upcase %> [<%= item.current_stock_level %>]</p>
+  <a href="/stock/<%= item.id %>/edit">Edit</a>
   <hr>
 <% end %>
