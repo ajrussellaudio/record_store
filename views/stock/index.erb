@@ -1,0 +1,6 @@
+<% @page_title = "All Stock" %>
+
+<% @stock.each do |item| %>
+  <p><%= item.artist.name %> - <%= item.album.name %> [<%= item.current_stock_level %>]</p>
+  <hr>
+<% end %>
