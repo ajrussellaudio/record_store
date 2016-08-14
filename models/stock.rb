@@ -9,6 +9,11 @@ class Stock
     Stock.map_items(sql)
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM stocks;"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items( sql )
     stocks = SqlRunner.run(sql)
     return stocks.map { |stock| Stock.new(stock) }

@@ -5,6 +5,7 @@ require_relative "./models/stock"
 
 Album.delete_all
 Artist.delete_all
+Stock.delete_all
 
 artist1 = Artist.new({
   'name'  => "Photek",
