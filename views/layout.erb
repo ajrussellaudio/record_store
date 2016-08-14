@@ -1,0 +1,13 @@
+<% business_name = "Harvey's Record Store" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= business_name %> | <%= @page_title %></title>
+</head>
+<body>
+  <h1><%= business_name %></h1>
+  <h3><%= @page_title %></h3>
+  <%= yield %>
+</body>
+</html>
