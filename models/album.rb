@@ -19,6 +19,15 @@ class Album
     return Album.map_item(sql)
   end
 
+  def self.update(options)
+    sql = "UPDATE albums SET
+      name = '#{options['name']}',
+      artist_id = '#{options['artist_id']}'
+      WHERE id = #{options['id']};"
+    SqlRunner.run( sql )
+    return self
+  end
+
   def self.delete(id)
     sql = "DELETE FROM albums WHERE id = #{id};"
     SqlRunner.run(sql)

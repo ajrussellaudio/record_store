@@ -1,4 +1,6 @@
 <% @page_title = "#{@album.name}" %>
 
-<p>Title: <%= @album.name %></p>
+<p>Title: <%= @album.name %> <a href="/artists/<%= @album.artist.id %>/albums/<%= @album.id %>/edit">Edit</a></p>
 <p>By:<a href="/artists/<%= @album.artist.id %>"><%= @album.artist.name %></a></p>
+
+<a href="/artists/<%= @album.artist.id %>/albums/<%= @album.id %>/delete">Delete</a>
