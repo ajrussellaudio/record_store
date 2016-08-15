@@ -1,0 +1,14 @@
+<% @page_title = "Add #{@artist.name} Album" %>
+
+<form action="/artists/<%= @artist.id %>/albums/new" method="post">
+  <fieldset>
+    <legend><%= @page_title %></legend>
+
+    <label for="name">Title:</label>
+    <input type="text" name="name"><br>
+
+    <input type="submit" value="Create New Album">
+
+  </fieldset>
+  
+</form>

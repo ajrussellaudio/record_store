@@ -14,8 +14,10 @@
 
 <ul>
   <% @artist.albums.each do |album| %>
-  <li><%= album.name %> </li>
+  <li><a href="/artists/<%= @artist.id %>/albums/<%= album.id %>"><%= album.name %></a></li>
   <% end %>
 </ul>
 
 <% end %>
+
+<a href="/artists/<%= @artist.id %>/albums/new">Add Album</a>
