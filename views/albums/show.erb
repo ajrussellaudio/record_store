@@ -1,4 +1,4 @@
 <% @page_title = "#{@album.name}" %>
 
 <p>Title: <%= @album.name %></p>
-<p>By: <%= @album.artist.name %></p>
+<p>By:<a href="/artists/<%= @album.artist.id %>"><%= @album.artist.name %></a></p>
