@@ -27,3 +27,13 @@ post '/artists/:id' do
   Artist.update(params)
   redirect to "/artists/#{params['id']}"
 end
+
+get '/artists/:id/delete' do
+  @artist = Artist.find(params['id'])
+  erb(:'artists/delete')
+end
+
+post '/artists/:id/delete' do
+  Artist.delete(params['id'])
+  redirect to '/artists'
+end

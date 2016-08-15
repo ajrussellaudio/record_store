@@ -1,7 +1,11 @@
 <% @page_title = "All Artists" %>
 
+<a href="/artists/new">Add Artist</a>
+
 <ul>
 <% @artists.each do |artist| %>
   <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a> [<em><%= artist.genre %></em>]</li>
 <% end %>
 </ul>
+
+<a href="/artists/new">Add Artist</a>

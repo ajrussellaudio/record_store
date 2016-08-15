@@ -1,0 +1,10 @@
+<% @page_title = "Delete #{@artist.name}" %>
+
+<div class="alert">
+<p><strong>You are about to delete <%= @artist.name %> from the database!</strong></p>
+<p>This cannot be undone!</p>
+
+<form action = "/artists/<%= @artist.id %>/delete" method="post">
+  <input type="submit" value="Delete forever">
+</form>
+</div>
