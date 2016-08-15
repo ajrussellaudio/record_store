@@ -1,7 +1,30 @@
 <% @page_title = "All Stock" %>
 
-<% @stock.each do |item| %>
-  <p><%= item.artist.name %> - <em><%= item.album.name %></em>, <%= item.format.upcase %> [<%= item.current_stock_level %>]</p>
-  <a href="/stock/<%= item.id %>/edit">Edit</a>
-  <hr>
-<% end %>
+<a href="/stock/new">Add New Stock Item</a>
+
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Genre</th>
+    <th>Format</th>
+    <th>Quantity</th>
+    <th>Re-order At</th>
+    <th>Purchase Cost</th>
+    <th>Selling Price</th>
+  </tr>
+  <% @stock.each do |item| %>
+  <tr>
+    <td><%= item.artist.name %></td>
+    <td><%= item.album.name %></td>
+    <td><%= item.genre %></td>
+    <td><%= item.format %></td>
+    <td><%= item.current_stock_level %></td>
+    <td><%= item.reorder_threshold %></td>
+    <td><%= item.buy_price %></td>
+    <td><%= item.sell_price %></td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="/stock/new">Add New Stock Item</a>
