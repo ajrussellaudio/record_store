@@ -6,7 +6,7 @@
 
 <form action="/stock/update" method="post" >
   <fieldset>
-    <legend>Edit Stock Item</legend>
+    <legend>Edit Stock Entry for <%= @stock_item.album.name %> by <%= @stock_item.artist.name %></legend>
     
     <label for="album">Album: </label>
     <select name="album_id">

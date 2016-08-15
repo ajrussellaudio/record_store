@@ -10,9 +10,11 @@
     <th>Format</th>
     <th>Quantity</th>
     <th>Re-order At</th>
-    <th>Purchase Cost</th>
-    <th>Selling Price</th>
+    <th>Cost (£)</th>
+    <th>Price (£)</th>
+    <th>Edit</th>
   </tr>
+  
   <% @stock.each do |item| %>
   <tr>
     <td><%= item.artist.name %></td>
@@ -23,6 +25,7 @@
     <td><%= item.reorder_threshold %></td>
     <td><%= item.buy_price %></td>
     <td><%= item.sell_price %></td>
+    <td><a href="/stock/<%= item.id %>/edit">Edit</a></td>
   </tr>
   <% end %>
 </table>
