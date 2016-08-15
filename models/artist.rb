@@ -25,6 +25,15 @@ class Artist
     SqlRunner.run(sql)
   end
 
+  def self.update(options)
+    sql = "UPDATE artists SET
+      name = '#{options['name']}',
+      genre = '#{options['genre']}'
+      WHERE id = #{options['id']};"
+    SqlRunner.run( sql )
+    return self
+  end
+
   def self.map_items(sql)
     artists = SqlRunner.run(sql)
     result = artists.map { |artist| Artist.new( artist ) }
@@ -47,15 +56,6 @@ class Artist
       VALUES ('#{@name}', '#{@genre}') RETURNING * ;"
     artist = SqlRunner.run( sql ).first
     @id = artist['id'].to_i
-  end
-
-  def update()
-    sql = "UPDATE artists SET
-      name = '@name',
-      genre = '@genre'
-      WHERE id = #{@id};"
-    SqlRunner.run( sql )
-    return self
   end
 
   def albums()

@@ -2,6 +2,8 @@
 
 <p>Genre: <em><%= @artist.genre %></em> </p>
 
+<a href="/artists/<%= @artist.id %>/edit">Edit</a>
+
 <h5>Albums</h5>
 
 <% if @artist.albums.count == 0 %>
