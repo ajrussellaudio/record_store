@@ -1,0 +1,22 @@
+<% @page_title = "New Artist" %>
+
+<form action="/artists/new" method="post">
+  <fieldset>
+    <legend><%= @page_title %></legend>
+
+    <label for="name">Name:</label>
+    <input type="text" name="name"><br>
+
+    <% genres = ["rock", "pop", "electronic", "metal", "hip-hop", "jazz", "classical"].sort %>
+    <label for="genre">Genre:</label>
+    <select name="genre">
+      <% genres.each do |genre| %>
+      <option value="<%= genre %>"><%= genre %></option>
+      <% end %>
+    </select><br>
+
+    <input type="submit" value="Create New Artist">
+
+  </fieldset>
+  
+</form>
