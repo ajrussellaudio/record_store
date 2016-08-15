@@ -2,6 +2,6 @@
 
 <ul>
 <% @artists.each do |artist| %>
-  <li><%= artist.name %> [<em><%= artist.genre %></em>]</li>
+  <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a> [<em><%= artist.genre %></em>]</li>
 <% end %>
 </ul>

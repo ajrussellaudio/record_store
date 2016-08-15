@@ -1,3 +1,11 @@
 <% @page_title = @artist.name %>
 
-<p><%= @artist.name %> [<%= @artist.genre %>]</p>
+<p>Genre: <em><%= @artist.genre %></em> </p>
+
+<h5>Albums</h5>
+
+<ul>
+  <% @artist.albums.each do |album| %>
+    <li><%= album.name %> </li>
+  <% end %>
+</ul>
