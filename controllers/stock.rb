@@ -28,3 +28,4 @@ get '/stock/:id/edit' do
   @albums = Album.all
   erb(:'stock/edit')
 end
+

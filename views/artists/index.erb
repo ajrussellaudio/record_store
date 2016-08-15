@@ -1,0 +1,7 @@
+<% @page_title = "All Artists" %>
+
+<ul>
+<% @artists.each do |artist| %>
+  <li><%= artist.name %> [<em><%= artist.genre %></em>]</li>
+<% end %>
+</ul>

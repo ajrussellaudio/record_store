@@ -7,6 +7,12 @@
 </head>
 <body>
   <h1><%= business_name %></h1>
+  <nav>
+    <ul>
+      <li><a href="/stock">Home</a></li>
+      <li><a href="/stock/new">Add Stock Item</a></li>
+    </ul>
+  </nav>
   <h3><%= @page_title %></h3>
   <%= yield %>
 </body>
