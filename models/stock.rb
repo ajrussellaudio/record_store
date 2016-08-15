@@ -19,6 +19,11 @@ class Stock
     Stock.map_item( sql )
   end
 
+  def self.find_duplicate( params )
+    sql = "SELECT * FROM stocks WHERE album_id = #{params['album_id']} AND format = '#{params['format']}';"
+    return Stock.map_item(sql)
+  end
+
   def self.map_items( sql )
     stocks = SqlRunner.run(sql)
     return stocks.map { |stock| Stock.new(stock) }
@@ -71,6 +76,22 @@ class Stock
       WHERE id = #{@id};"
     SqlRunner.run( sql )
   end
+
+  def buy_price()
+    return "%0.2f" % (@buy_price / 100.0)
+  end
+
+  def buy_price=(new_buy_price)
+    @buy_price = new_buy_price * 100
+  end 
+
+  def sell_price()
+    return "%0.2f" % (@sell_price / 100.0)
+  end
+
+  def sell_price=(new_sell_price)
+    @sell_price = new_sell_price * 100
+  end 
 
   def album()
     Album.find(@album_id)

@@ -43,7 +43,7 @@ album4.save()
 
 stock1 = Stock.new({
   'album_id' => album1.id, # Modus Operandi
-  'format' => 'vinyl',
+  'format' => 'Vinyl',
   'current_stock_level' => 10,
   'reorder_threshold' => 2,
   'buy_price' => 5_00,
@@ -52,7 +52,7 @@ stock1 = Stock.new({
 
 stock2 = Stock.new({
   'album_id' => album3.id, # Music has the Right...
-  'format' => 'cd',
+  'format' => 'CD',
   'current_stock_level' => 5,
   'reorder_threshold' => 5,
   'buy_price' => 7_00,

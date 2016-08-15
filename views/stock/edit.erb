@@ -1,3 +1,37 @@
 <% @page_title = "Edit Stock Item" %>
 
-<p>This will be the edit page for <em><%= @stock_item.album.name %></em> by <%= @stock_item.artist.name %> on <%= @stock_item.format %> </p>
+<div class="alert" style="display: <%= @alert_display %>"><p>The stock entry you are trying to create already exists!</p></div>
+
+<!-- <p>This will be the edit page for <em><%= @stock_item.album.name %></em> by <%= @stock_item.artist.name %> on <%= @stock_item.format %> </p> -->
+
+<form action="/stock/update" method="post" >
+  <fieldset>
+    <legend>Edit Stock Item</legend>
+    
+    <label for="album">Album: </label>
+    <select name="album_id">
+      <% @albums.each do |album| %>
+      <option value="<%= album.id %>" <%= 'selected="selected"' if album.id == @stock_item.album_id %>><%= album.artist.name %> - <%= album.name %></option>
+      <% end %>   
+      </select><br>
+
+    <% formats = ["Vinyl", "CD", "Tape"] %>
+    <label for="format">Format: </label>
+    <select name="format">
+      <% formats.each do |format| %>
+      <option value="<%= format %>" <%= 'selected="selected"' if format == @stock_item.format %>><%= format %></option>
+      <% end %>
+    </select><br>
+
+    <label for="buy_price">Purchase Price (£): </label>
+    <input type="number" min="0" value="<%= @stock_item.buy_price %>" name="buy_price"><br>
+
+    <label for="sell_price">Sell Price (£): </label>
+    <input type="number" min="0" value="<%= @stock_item.sell_price %>" name="sell_price"><br>
+
+    <label for="reorder_threshold">Minimum Stock Level: </label>
+    <input type="number" min="0" value="<%= @stock_item.reorder_threshold %>" name="reorder_threshold"><br>
+
+    <input type="submit" value="Edit Stock Item"><br>
+  </fieldset>
+</form>

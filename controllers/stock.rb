@@ -10,11 +10,21 @@ end
 
 post '/stock/new' do
   new_stock_item = Stock.new( params )
-  new_stock_item.save()
-  redirect to '/stock'
+  duplicate = Stock.find_duplicate(params)
+  if duplicate == nil
+    new_stock_item.save()
+    redirect to '/stock'
+  else
+    @stock_item = Stock.find(duplicate.id)
+    @alert_display = "block"
+    @albums = Album.all
+    erb(:'stock/edit')
+  end
 end
 
 get '/stock/:id/edit' do
   @stock_item = Stock.find(params['id'])
+  @alert_display = "none"
+  @albums = Album.all
   erb(:'stock/edit')
 end
