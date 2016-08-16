@@ -116,4 +116,9 @@ class Stock
     return false
   end
 
+  def below_threshold?()
+    return true if @current_stock_level < @reorder_threshold
+    return false
+  end
+
 end

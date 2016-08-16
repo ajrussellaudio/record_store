@@ -34,5 +34,19 @@ class TestStock < MiniTest::Test
     assert_equal(true, @test_stock.out_of_stock?)
   end
 
+  def test_below_threshold
+    assert_equal(false, @test_stock.below_threshold?)
+  end
+
+  def test_below_threshold__true
+    @test_stock.current_stock_level = 1
+    assert_equal(true, @test_stock.below_threshold?)
+  end
+
+  def test_below_threshold__edge
+    @test_stock.current_stock_level = 2
+    assert_equal(false, @test_stock.below_threshold?)
+  end
+
 
 end
