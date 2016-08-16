@@ -4,18 +4,24 @@
 <html>
 <head>
   <title><%= business_name %> | <%= @page_title %></title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-  <h1><%= business_name %></h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/stock">Stock Management</a></li>
-      <li><a href="/artists">Artists</a></li>
-      
-    </ul>
-  </nav>
-  <h3><%= @page_title %></h3>
-  <%= yield %>
+  <div class="wrapper">
+  <header>
+  <div class="logo"><h1><%= business_name %></h1></div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/stock">Stock</a></li>
+        <li><a href="/artists">Artists</a></li>    
+      </ul>
+    </nav>
+  </header>
+  <article>
+    <h3><%= @page_title %></h3>
+    <%= yield %>
+  </article>
+  </div>
 </body>
 </html>

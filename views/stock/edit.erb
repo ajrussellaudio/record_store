@@ -1,6 +1,6 @@
 <% @page_title = "Edit Stock Item" %>
 
-<div class="alert" style="display: <%= @alert_display %>"><p>The stock entry you are trying to create already exists!</p></div>
+<%= '<div class="alert"><p>The stock entry you are trying to create already exists!</p></div>' if params['alert'] == 'show' %>
 
 <form action="/stock/<%= @stock_item.id %>/update" method="post" >
   <fieldset>
