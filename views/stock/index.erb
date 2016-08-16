@@ -26,7 +26,7 @@
     <td><%= item.reorder_threshold %></td>
     <td><%= '%0.2f' % item.buy_price %></td>
     <td><%= '%0.2f' % item.sell_price %></td>
-    <td><%= '%0.2f' % item.sell_price %></td>
+    <td><%= item.margin %></td>
     <td><a href="/stock/<%= item.id %>/edit">Edit</a></td>
   </tr>
   <% end %>
