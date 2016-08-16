@@ -101,4 +101,12 @@ class Stock
     return album.artist.genre
   end
 
+  def profit
+    return @sell_price - @buy_price
+  end
+
+  def margin()
+    (profit() / @sell_price) * 100
+  end
+
 end
