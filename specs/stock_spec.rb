@@ -25,5 +25,14 @@ class TestStock < MiniTest::Test
     assert_equal( 33.3, @test_stock.margin)
   end
 
+  def test_out_of_stock
+    assert_equal(false, @test_stock.out_of_stock?)
+  end
+
+  def test_out_of_stock__true
+    @test_stock.current_stock_level = 0
+    assert_equal(true, @test_stock.out_of_stock?)
+  end
+
 
 end

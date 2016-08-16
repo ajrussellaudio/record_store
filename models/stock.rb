@@ -111,4 +111,9 @@ class Stock
     return margin.round(3)
   end
 
+  def out_of_stock?()
+    return true if @current_stock_level == 0
+    return false
+  end
+
 end
