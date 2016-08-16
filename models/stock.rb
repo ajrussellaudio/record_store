@@ -2,7 +2,8 @@ require_relative "../db/sql_runner"
 
 class Stock
 
-  attr_reader :id, :album_id, :format, :buy_price, :sell_price, :current_stock_level, :reorder_threshold
+  attr_accessor :album_id, :format, :buy_price, :sell_price, :current_stock_level, :reorder_threshold
+  attr_reader :id
 
   def self.all()
     sql = "SELECT * FROM stocks;"
@@ -106,7 +107,8 @@ class Stock
   end
 
   def margin()
-    (profit() / @sell_price) * 100
+    margin = (profit().to_f / @sell_price) * 100
+    return margin.round(3)
   end
 
 end

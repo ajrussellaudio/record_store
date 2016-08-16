@@ -20,5 +20,10 @@ class TestStock < MiniTest::Test
     assert_equal( 35, @test_stock.margin)
   end
 
+  def test_margin__float
+    @test_stock.buy_price = 6.67
+    assert_equal( 33.3, @test_stock.margin)
+  end
+
 
 end

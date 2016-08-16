@@ -12,6 +12,7 @@
     <th>Re-order At</th>
     <th>Cost (£)</th>
     <th>Price (£)</th>
+    <th>Margin (%)</th>
     <th>Edit</th>
   </tr>
   
@@ -24,6 +25,7 @@
     <td><%= item.current_stock_level %></td>
     <td><%= item.reorder_threshold %></td>
     <td><%= '%0.2f' % item.buy_price %></td>
+    <td><%= '%0.2f' % item.sell_price %></td>
     <td><%= '%0.2f' % item.sell_price %></td>
     <td><a href="/stock/<%= item.id %>/edit">Edit</a></td>
   </tr>
