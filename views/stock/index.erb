@@ -23,8 +23,8 @@
     <td><%= item.format %></td>
     <td><%= item.current_stock_level %></td>
     <td><%= item.reorder_threshold %></td>
-    <td><%= item.buy_price %></td>
-    <td><%= item.sell_price %></td>
+    <td><%= '%0.2f' % item.buy_price %></td>
+    <td><%= '%0.2f' % item.sell_price %></td>
     <td><a href="/stock/<%= item.id %>/edit">Edit</a></td>
   </tr>
   <% end %>

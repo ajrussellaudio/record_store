@@ -22,10 +22,10 @@
     </select><br>
 
     <label for="buy_price">Purchase Price (£): </label>
-    <input type="number" min="0" step="0.01" value="<%= @stock_item.buy_price %>" name="buy_price"><br>
+    <input type="number" min="0" step="0.01" value="<%= '%0.2f' % @stock_item.buy_price %>" name="buy_price"><br>
 
     <label for="sell_price">Sell Price (£): </label>
-    <input type="number" min="0" step="0.01" value="<%= @stock_item.sell_price %>" name="sell_price"><br>
+    <input type="number" min="0" step="0.01" value="<%= '%0.2f' % @stock_item.sell_price %>" name="sell_price"><br>
 
     <label for="current_stock_level">Current Stock Level: </label>
     <input type="number" min="0" value="<%= @stock_item.current_stock_level %>" name="current_stock_level"><br>
