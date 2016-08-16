@@ -50,8 +50,8 @@ class Stock
     @album_id = options['album_id'].to_i
     @format   = options['format']
 
-    @buy_price  = options['buy_price'].to_i
-    @sell_price = options['sell_price'].to_i
+    @buy_price  = options['buy_price'].to_f
+    @sell_price = options['sell_price'].to_f
 
     @current_stock_level = options['current_stock_level'].to_i
     @reorder_threshold   = options['reorder_threshold'].to_i
@@ -88,22 +88,6 @@ class Stock
       WHERE id = #{@id};"
     SqlRunner.run( sql )
   end
-
-  def buy_price()
-    return "%0.2f" % (@buy_price / 100.0)
-  end
-
-  def buy_price=(new_buy_price)
-    @buy_price = new_buy_price * 100
-  end 
-
-  def sell_price()
-    return "%0.2f" % (@sell_price / 100.0)
-  end
-
-  def sell_price=(new_sell_price)
-    @sell_price = new_sell_price * 100
-  end 
 
   def album()
     Album.find(@album_id)

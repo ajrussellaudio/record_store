@@ -20,6 +20,6 @@ CREATE TABLE stocks (
   format VARCHAR(255),
   current_stock_level INT4,
   reorder_threshold INT4,
-  buy_price INT4,
-  sell_price INT4
+  buy_price DECIMAL(10,2),
+  sell_price DECIMAL(10,2)
 )
