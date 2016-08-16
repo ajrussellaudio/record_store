@@ -29,3 +29,8 @@ get '/stock/:id/edit' do
   erb(:'stock/edit')
 end
 
+post '/stock/:id/update' do
+  Stock.update(params)
+  redirect to "/stock"
+end
+

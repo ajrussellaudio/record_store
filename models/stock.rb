@@ -24,6 +24,18 @@ class Stock
     return Stock.map_item(sql)
   end
 
+  def self.update( params )
+    sql = "UPDATE stocks SET
+      album_id = #{params['album_id']},
+      format = '#{params['format']}',
+      buy_price = #{params['buy_price']},
+      sell_price = #{params['sell_price']},
+      current_stock_level = #{params['current_stock_level']},
+      reorder_threshold = #{params['reorder_threshold']}
+      WHERE id = #{params['id']};"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items( sql )
     stocks = SqlRunner.run(sql)
     return stocks.map { |stock| Stock.new(stock) }
