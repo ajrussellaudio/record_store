@@ -7,21 +7,26 @@
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+
   <div class="wrapper">
-  <header>
-  <div class="logo"><h1><%= business_name %></h1></div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/stock">Stock</a></li>
-        <li><a href="/artists">Artists</a></li>    
-      </ul>
-    </nav>
-  </header>
-  <article>
-    <h3><%= @page_title %></h3>
-    <%= yield %>
-  </article>
+
+  <div class="header">
+      <div class="logo"><h1><%= business_name %></h1></div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/stock">Stock</a></li>
+          <li><a href="/artists">Catalogue</a></li>    
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <h3><%= @page_title %></h3>
+      <%= yield %>
+    </article>
+
   </div>
+
 </body>
 </html>

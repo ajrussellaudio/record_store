@@ -9,7 +9,7 @@
     <th>Genre</th>
     <th>Format</th>
     <th>Quantity</th>
-    <th>Re-order At</th>
+    <th>Low Stock Threshold</th>
     <th>Cost (£)</th>
     <th>Price (£)</th>
     <th>Margin (%)</th>
@@ -21,16 +21,16 @@
   <% stock_class = "orange" if item.below_threshold? %>
   <% stock_class = "red" if item.out_of_stock? %>
   <tr class="<%= stock_class %>">
-    <td><%= item.artist.name %></td>
-    <td><%= item.album.name %></td>
-    <td><%= item.genre %></td>
-    <td><%= item.format %></td>
-    <td><%= item.current_stock_level %></td>
-    <td><%= item.reorder_threshold %></td>
-    <td><%= '%0.2f' % item.buy_price %></td>
-    <td><%= '%0.2f' % item.sell_price %></td>
-    <td><%= item.margin %></td>
-    <td><a href="/stock/<%= item.id %>/edit?alert=none">Edit</a></td>
+    <td class="txt"><%= item.artist.name %></td>
+    <td class="txt"><%= item.album.name %></td>
+    <td class="txt"><%= item.genre %></td>
+    <td class="txt"><%= item.format %></td>
+    <td class="num"><%= item.current_stock_level %></td>
+    <td class="num"><%= item.reorder_threshold %></td>
+    <td class="num"><%= '%0.2f' % item.buy_price %></td>
+    <td class="num"><%= '%0.2f' % item.sell_price %></td>
+    <td class="num"><%= item.margin %></td>
+    <td class="txt"><a href="/stock/<%= item.id %>/edit?alert=none">Edit</a></td>
   </tr>
   <% end %>
 </table>
