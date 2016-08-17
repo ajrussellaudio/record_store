@@ -15,7 +15,6 @@ post '/stock/new' do
     new_stock_item.save()
     redirect to '/stock'
   else
-    # @stock_item = Stock.find(duplicate.id)
     redirect to "/stock/#{duplicate.id}/edit?alert=show"
   end
 end
